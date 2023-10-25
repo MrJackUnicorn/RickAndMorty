@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:rick_and_morty_app/entity/character_info_response.dart';
+import 'package:rick_and_morty_app/entity/character.dart';
+
 import 'package:rick_and_morty_app/entity/char_response.dart';
 
 class ApiClient {
@@ -20,11 +21,11 @@ class ApiClient {
     }
   }
 
-  Future<CharacterInfoResponse> getCharById(int id) async {
+  Future<Character> getCharById(int id) async {
     final response = await http.get(Uri.parse('$_host$getPath/$id'));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
-      final charResponse = CharacterInfoResponse.fromJson(jsonData);
+      final charResponse = Character.fromJson(jsonData);
       return charResponse;
     } else {
       throw Exception('Failed to load char');

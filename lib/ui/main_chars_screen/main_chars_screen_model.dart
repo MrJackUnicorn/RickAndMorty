@@ -27,33 +27,8 @@ class MainCharsScreenModel extends ChangeNotifier {
   }
 
   void onCharacterTap(BuildContext context, int index) {
-    final char = chars[index];
+    final char = chars[index - 1];
     final charId = char.id;
     Navigator.of(context).pushNamed('/charactersInfoWidget', arguments: charId);
   }
 }
-
-// class MainCharsScreenModelProvider extends InheritedNotifier {
-//   final MainCharsScreenModel model;
-
-//   const MainCharsScreenModelProvider({
-//     Key? key,
-//     required this.model,
-//     required Widget child,
-//   }) : super(
-//           key: key,
-//           notifier: model,
-//           child: child,
-//         );
-//   static MainCharsScreenModelProvider? watch(BuildContext context) {
-//     return context
-//         .dependOnInheritedWidgetOfExactType<MainCharsScreenModelProvider>();
-//   }
-
-//   static MainCharsScreenModelProvider? read(BuildContext context) {
-//     final widget = context
-//         .getElementForInheritedWidgetOfExactType<MainCharsScreenModelProvider>()
-//         ?.widget;
-//     return widget is MainCharsScreenModelProvider ? widget : null;
-//   }
-// }

@@ -48,8 +48,8 @@ class _MainCharsScreenView extends StatelessWidget {
           model.showedCharacterAtIndex(index);
           final char = model.chars[index];
           final avatar = char.avatar;
-          final chatId = char.id;
-          if (chatId == null) return SizedBox.shrink();
+          final charId = char.id;
+          if (charId == null) return const SizedBox.shrink();
           if (avatar == null) return const SizedBox();
           return Stack(
             children: [
@@ -110,7 +110,7 @@ class _MainCharsScreenView extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () => model.onCharacterTap(context, chatId),
+                    onTap: () => model.onCharacterTap(context, charId),
                   ),
                 ),
               )

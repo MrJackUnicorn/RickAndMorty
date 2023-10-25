@@ -24,21 +24,24 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/mainCharactersWidget': (context) => const MainCharsScreenWidget(),
-        // '/charactersInfoWidget': (context) => const CharacterInfoWidget(),
+        //  '/charactersInfoWidget': (context) => const CharacterInfoWidget(),
       },
       initialRoute: '/mainCharactersWidget',
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/charactersInfoWidget':
             final arguments = settings.arguments;
-            final characterId = arguments is int ? arguments : 0;
+            final id = arguments is int ? arguments : 0;
             return MaterialPageRoute(
               builder: (context) => ChangeNotifierProvider(
-                create: (context) => CharacterInfoModel(characterId),
-                child: const CharacterInfoWidget(),
+                create: (context) => CharacterInfoModel(id),
+                child: CharacterInfoWidget(
+                  id: id,
+                ),
               ),
             );
         }
+        return null;
       },
     );
   }
