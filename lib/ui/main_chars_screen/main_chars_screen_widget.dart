@@ -38,8 +38,8 @@ class _MainCharsScreenView extends StatelessWidget {
           'All Characters',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
         ),
-        foregroundColor: const Color.fromRGBO(253, 255, 128, 1),
-        backgroundColor: const Color.fromRGBO(35, 156, 33, 1),
+        foregroundColor: const Color.fromRGBO(174, 235, 238, 1),
+        backgroundColor: Colors.indigo,
       ),
       body: ListView.builder(
         itemExtent: 100,
@@ -50,7 +50,7 @@ class _MainCharsScreenView extends StatelessWidget {
           final avatar = char.avatar;
           final charId = char.id;
           if (charId == null) return const SizedBox.shrink();
-          if (avatar == null) return const SizedBox();
+          if (avatar == null) return const SizedBox.shrink();
           return Stack(
             children: [
               InkWell(
@@ -66,7 +66,7 @@ class _MainCharsScreenView extends StatelessWidget {
                     color: const Color.fromRGBO(180, 232, 251, 1),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withOpacity(0.4),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
