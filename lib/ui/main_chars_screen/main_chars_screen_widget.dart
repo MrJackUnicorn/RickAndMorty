@@ -87,15 +87,26 @@ class _MainCharsScreenView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              char.name.toString(),
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w600),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    char.name.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: const Icon(Icons.chevron_right),
+                                )
+                              ],
                             ),
                             const SizedBox(
                               height: 4,
                             ),
-                            Text(char.id.toString()),
+                            // Text(char.id.toString()),
                           ],
                         ),
                       ),
